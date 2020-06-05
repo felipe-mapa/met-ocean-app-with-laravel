@@ -1,5 +1,19 @@
 {
+    "name": "met-ocean-app-with-laravel",
+    "version": "0.1.0",
     "private": true,
+    "dependencies": {
+        "@material-ui/core": "^4.9.12",
+        "axios": "^0.19.2",
+        "date-fns": "^2.12.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-redux": "^7.2.0",
+        "redux-thunk": "^2.3.0",
+        "redux": "^4.0.5",
+        "redux-devtools-extension": "^2.13.8",
+        "victory": "^34.1.3"
+    },
     "scripts": {
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",

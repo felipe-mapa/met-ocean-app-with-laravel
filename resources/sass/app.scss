@@ -1,8 +1,20 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
+
+// Spinner
+@import "spinner";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+.App {
+    padding: 20px;
+}
+@media only screen and (max-width: 500px) {
+    .App {
+        padding: 5px;
+    }
+}
