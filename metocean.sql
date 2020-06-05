@@ -1,45 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
---
--- Host: custsql-ipg130.eigbox.net
--- Generation Time: Jun 04, 2020 at 12:40 AM
--- Server version: 5.6.41-84.1-log
--- PHP Version: 7.0.33-0ubuntu0.16.04.14
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `metocean`
---
-CREATE DATABASE IF NOT EXISTS `metocean` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `metocean`;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `columns`
---
-
-CREATE TABLE `columns` (
-  `name` varchar(255) NOT NULL,
-  `measurement` varchar(255) NOT NULL,
-  `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `columns`
---
-
 INSERT INTO `columns` (`name`, `measurement`, `description`, `created_at`, `updated_at`) VALUES
 ('cb', 'm', 'Cloud base', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ('cd0', 'deg', 'Surface current direction (to)', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
@@ -80,60 +38,7 @@ INSERT INTO `columns` (`name`, `measurement`, `description`, `created_at`, `upda
 ('wsp50', 'kts', 'Mean wind speed at 50 m', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ('wsp80', 'kts', 'Mean wind speed at 80 m', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `hourly_data`
---
-
-CREATE TABLE `data_hours'` (
-  `time` varchar(255) NOT NULL,
-  `lev` float NOT NULL,
-  `hs` float NOT NULL,
-  `hx` float NOT NULL,
-  `tp` float NOT NULL,
-  `tm01` float NOT NULL,
-  `tm02` float NOT NULL,
-  `dp` int(11) NOT NULL,
-  `dpm` int(11) NOT NULL,
-  `hs_sw1` float NOT NULL,
-  `hs_sw8` float NOT NULL,
-  `tp_sw1` float NOT NULL,
-  `tp_sw8` float NOT NULL,
-  `dpm_sw8` int(11) NOT NULL,
-  `dpm_sw1` int(11) NOT NULL,
-  `hs_sea8` float NOT NULL,
-  `hs_sea` float NOT NULL,
-  `tp_sea8` float NOT NULL,
-  `tp_sea` float NOT NULL,
-  `tm_sea` float NOT NULL,
-  `dpm_sea8` int(11) NOT NULL,
-  `dpm_sea` int(11) NOT NULL,
-  `hs_ig` float NOT NULL,
-  `hs_fig` float NOT NULL,
-  `wsp` int(11) NOT NULL,
-  `gst` int(11) NOT NULL,
-  `wd` int(11) NOT NULL,
-  `wsp100` int(11) NOT NULL,
-  `wsp50` int(11) NOT NULL,
-  `wsp80` int(11) NOT NULL,
-  `precip` float NOT NULL,
-  `tmp` float NOT NULL,
-  `rh` float NOT NULL,
-  `vis` float NOT NULL,
-  `cld` int(11) NOT NULL,
-  `cb` int(11) NOT NULL,
-  `csp0` float NOT NULL,
-  `cd0` int(11) NOT NULL,
-  `ss` float NOT NULL,
-  `sst` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `hourly_data`
---
-
-INSERT INTO `data_hours'` (`time`, `lev`, `hs`, `hx`, `tp`, `tm01`, `tm02`, `dp`, `dpm`, `hs_sw1`, `hs_sw8`, `tp_sw1`, `tp_sw8`, `dpm_sw8`, `dpm_sw1`, `hs_sea8`, `hs_sea`, `tp_sea8`, `tp_sea`, `tm_sea`, `dpm_sea8`, `dpm_sea`, `hs_ig`, `hs_fig`, `wsp`, `gst`, `wd`, `wsp100`, `wsp50`, `wsp80`, `precip`, `tmp`, `rh`, `vis`, `cld`, `cb`, `csp0`, `cd0`, `ss`, `sst`, `created_at`, `updated_at`) VALUES
+INSERT INTO `data_hours` (`time`, `lev`, `hs`, `hx`, `tp`, `tm01`, `tm02`, `dp`, `dpm`, `hs_sw1`, `hs_sw8`, `tp_sw1`, `tp_sw8`, `dpm_sw8`, `dpm_sw1`, `hs_sea8`, `hs_sea`, `tp_sea8`, `tp_sea`, `tm_sea`, `dpm_sea8`, `dpm_sea`, `hs_ig`, `hs_fig`, `wsp`, `gst`, `wd`, `wsp100`, `wsp50`, `wsp80`, `precip`, `tmp`, `rh`, `vis`, `cld`, `cb`, `csp0`, `cd0`, `ss`, `sst`, `created_at`, `updated_at`) VALUES
 ('2014-02-10 05:00:00', 0, 1.9, 3.5, 13.1, 6.6, 5.6, 0, 243, 1.4, 1.3, 13.1, 13.1, 243, 243, 1.3, 0, 7.4, 0, 0, 163, 0, 0, 0, 5, 6, 136, 6, 6, 6, 0, 17.4, 72, 11.8, 0, 0, 0.6, 247, -0.02, 18.2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ('2014-02-10 06:00:00', 0, 1.8, 3.4, 13, 6.6, 5.6, 0, 244, 1.4, 1.3, 13, 13, 244, 244, 1.3, 0, 7.4, 0, 0, 166, 0, 0, 0, 8, 10, 121, 9, 9, 9, 0, 17.1, 70, 12.6, 0, 0, 0.5, 241, 0, 18.1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ('2014-02-10 07:00:00', 0, 1.8, 3.3, 13, 6.6, 5.5, 0, 244, 1.3, 1.3, 13, 13, 244, 243, 1.3, 0, 7.4, 0, 0, 168, 0, 0, 0, 9, 11, 116, 10, 9, 10, 0, 16.9, 73, 11.4, 0, 0, 0.5, 232, -0.01, 17.9, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
@@ -326,24 +231,3 @@ INSERT INTO `data_hours'` (`time`, `lev`, `hs`, `hx`, `tp`, `tm01`, `tm02`, `dp`
 ('2014-02-18 02:00:00', 0, 1.4, 2.7, 11.1, 5.7, 4.9, 0, 270, 1, 0.9, 10.2, 11.1, 270, 280, 1.1, 0.7, 0, 4.7, 0, 0, 5, 0, 0, 13, 16, 323, 15, 13, 14, 0, 19, 94, 6, 93, 6668, 0.6, 96, 0.05, 18.3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ('2014-02-18 03:00:00', 0, 1.4, 2.6, 11.2, 5.8, 5, 0, 270, 1, 1, 10.2, 11.2, 270, 280, 1.1, 0.8, 0, 4.8, 0, 0, 359, 0, 0, 13, 16, 316, 14, 12, 13, 0, 18.9, 94, 6, 91, 6084, 0.6, 89, 0, 18.3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ('2014-02-18 04:00:00', 0, 1.4, 2.6, 10.9, 6, 5.1, 0, 270, 1, 1, 10, 10.9, 270, 284, 1, 0.7, 0, 4.8, 0, 0, 4, 0, 0, 12, 15, 308, 13, 11, 12, 0, 18.9, 94, 6, 83, 5955, 0.5, 80, -0.08, 18.3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `columns`
---
-ALTER TABLE `columns`
-  ADD UNIQUE KEY `name` (`name`);
-
---
--- Indexes for table `hourly_data`
---
-ALTER TABLE `hourly_data`
-  ADD UNIQUE KEY `time` (`time`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
